@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved.
+
+    You may not modify, use, reproduce, or distribute this software except in
+    compliance with the terms of the License at:
+    http://java.net/projects/javaeetutorial/pages/BerkeleyLicense
+
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add new reservation</title>
+    </h:head>
+    <h:body>
+        <h:form>
+
+            <h3>Add reservation</h3>
+            <hr/>
+
+            <table>
+                <tr>
+                    <td>Date</td>
+                    <td><h:inputText size = "20" value = "#{addReservationsBean.date}" /></td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td><h:inputText size = "20" value = "#{addReservationsBean.time}" /></td>
+                </tr>
+
+                <tr>
+                    <td>Number of persons</td>
+                    <td><h:inputText size = "5" value = "#{addReservationsBean.numberOfPersons}" /></td>
+                </tr>
+
+                <tr>
+                    <td>Guest name</td>
+                    <td><h:inputText size = "20" value = "#{addReservationsBean.guestName}" /></td>
+                </tr>
+
+                <tr>
+                    <td>Special Guest</td>
+                    <td><h:selectBooleanCheckbox value = "#{addReservationsBean.isSpecialGuest}" /></td>
+                </tr>
+
+                <tr>
+                    <td>Requires special waiter</td>
+                    <td><h:selectBooleanCheckbox value = "#{addReservationsBean.isSpecialWaiter}" /></td>
+                </tr>
+
+                <tr>
+                    <td>Room</td>
+                    <td>
+                        <h:selectOneMenu value="#{addReservationsBean.roomId}">
+                            <f:selectItems value="#{addReservationsBean.rooms}" var="room" itemLabel="#{room.name}" itemValue="#{room.id}" />
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> </td>
+                    <td><h:commandButton value = "Add Reservation" 
+                                         action = "#{addReservationsBean.addReservation}"/></td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td><h:commandButton id="back" value="Back" action="index" /></td>
+                </tr>
+
+            </table>
+
+        </h:form>
+    </h:body>
+</html>
